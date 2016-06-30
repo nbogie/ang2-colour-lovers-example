@@ -1,0 +1,15 @@
+{
+  "folders":
+  [
+  {
+    "path": "/Users/neill/projects/js/angular2-quickstart",
+    "folder_exclude_patterns": ["node_modules", "typings"],
+    "file_exclude_patterns": ["*.js", "*.map", "*.sublime-workspace"]
+  }
+  ],
+  "settings":
+  {
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true
+  }
+}
