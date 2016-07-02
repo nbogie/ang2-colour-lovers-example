@@ -60,14 +60,15 @@ export class ColourLoversComponent {
         );
 
     }
-    ngOnInit() {
+    
+    changePalette(){
         if (this.paletteId){
-                this.getPalette(this.paletteId).subscribe(
-                    resp => { 
-                        this.palette = resp[0]
-                    } ,
-                    error => this.errorMessage = <any>error
-                );
+            this.getPalette(this.paletteId).subscribe(
+                resp => { 
+                    this.palette = resp[0]
+                } ,
+                error => this.errorMessage = <any>error
+            );
         } else {
             this.getRandomPalette().subscribe(
                 palettes => { 
@@ -76,5 +77,9 @@ export class ColourLoversComponent {
                 error => this.errorMessage = <any>error
             );
         }
+    }
+
+    ngOnInit() {
+        this.changePalette();
     }   
 }
