@@ -10,3 +10,10 @@ The basic application structure follows https://angular.io/docs/ts/latest/quicks
 
     npm install
     npm run typings install
+
+## Screenshot
+Here's what it looks like if you ask for a colour-lovers component, specifying a specific palette id:
+
+    <colour-lovers [paletteId]="4282454" ></colour-lovers>
+
+![screenshot](https://github.com/nbogie/ang2-colour-lovers-example/blob/colourlovers/screenshots/colourlovers_angular2_screenshot.png)
