@@ -27,6 +27,7 @@ export class ColourLoversComponent {
     @Input() paletteId:number;
     
     palette;
+    pattern;
     errorMessage:any;
     jsonVisible:boolean = false;
 
@@ -40,7 +41,12 @@ export class ColourLoversComponent {
                     .map(this.extractData)
                     .catch(this.handleError);    
     }
-  
+    getRandomPattern():Observable<any>{
+        return this.jsonp.get('http://www.colourlovers.com/api/patterns/random?format=json&jsonCallback=JSONP_CALLBACK')
+                    .map(this.extractData)
+                    .catch(this.handleError);        
+    }
+
     private extractData(res: Response) {
         return res.json();        
     }
@@ -56,6 +62,15 @@ export class ColourLoversComponent {
         this.jsonVisible = !this.jsonVisible;
     }
 
+    changePattern() {
+        this.getRandomPattern().subscribe(
+            patterns => { 
+            this.pattern = patterns[0]
+        } ,
+        error => this.errorMessage = <any>error
+        );
+
+    }
     ngOnInit() {
         if (this.paletteId){
                 this.getPalette(this.paletteId).subscribe(
@@ -65,14 +80,12 @@ export class ColourLoversComponent {
                     error => this.errorMessage = <any>error
                 );
         } else {
-            if (1==2){            
-                this.getRandomPalette().subscribe(
-                    palettes => { 
-                        this.palette = palettes[0]
-                    } ,
-                    error => this.errorMessage = <any>error
-                );
-            }
+            this.getRandomPalette().subscribe(
+                palettes => { 
+                    this.palette = palettes[0]
+                } ,
+                error => this.errorMessage = <any>error
+            );
         }
     }   
 }

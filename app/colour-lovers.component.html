@@ -16,4 +16,12 @@
         </pre>
     </div>
 </div>
+<div>
 
+
+<button (click)="changePattern()" class="btn">Change Pattern</button>
+<div *ngIf="pattern" style="height: 80%; border: 1px black solid; background-repeat: repeat;" [style.background-image]="'url(' + pattern.imageUrl +')'">
+    <div style="background-color: white; margin: 5%; padding: 5px">
+        <pre style="height: 50%">{{pattern | json}}</pre>
+    </div>
+</div>
