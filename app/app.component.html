@@ -2,8 +2,12 @@
 
 <div class="row">
     <div class="col-md-10">
+        <div *ngIf="true">
+            <colour-lovers [paletteId]="4282454" ></colour-lovers>
+            <colour-lovers ></colour-lovers>
+        </div>
         <div *ngIf="false">
-            <colour-lovers [paletteId]="4282454"></colour-lovers>
+
             <colour-lovers [paletteId]="1930"></colour-lovers>
             <colour-lovers [paletteId]="359978"></colour-lovers>
         </div>
