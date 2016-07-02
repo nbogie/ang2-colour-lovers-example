@@ -16,4 +16,4 @@ Here's what it looks like if you ask for a colour-lovers component, specifying a
 
     <colour-lovers [paletteId]="4282454" ></colour-lovers>
 
-![screenshot](https://github.com/nbogie/ang2-colour-lovers-example/blob/colourlovers/screenshots/colourlovers_angular2_screenshot.png)
+![screenshot](screenshots/colourlovers_angular2_screenshot.png)
