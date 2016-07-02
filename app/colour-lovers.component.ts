@@ -1,5 +1,5 @@
 import { Component, Input,OnInit } from '@angular/core';
-import { Observable }     from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { ColourLoversService } from './colour-lovers.service';
 
 @Component({
@@ -23,10 +23,8 @@ export class ColourLoversComponent {
 
     changePattern() {
         this.clService.getRandomPattern().subscribe(
-            patterns => { 
-            this.pattern = patterns[0]
-        } ,
-        error => this.errorMessage = <any>error
+            resp => { this.pattern = resp[0] } ,
+            error => this.errorMessage = <any>error
         );
 
     }
@@ -34,17 +32,13 @@ export class ColourLoversComponent {
     changePalette(){
         if (this.paletteId){
             this.clService.getPalette(this.paletteId).subscribe(
-                resp => { 
-                    this.palette = resp[0]
-                } ,
+                resp  => { this.palette = resp[0] } ,
                 error => this.errorMessage = <any>error
             );
         } else {
             this.clService.getRandomPalette().subscribe(
-                palettes => { 
-                    this.palette = palettes[0]
-                } ,
-                error => this.errorMessage = <any>error
+                resp => {  this.palette = resp[0] } ,
+                error    => this.errorMessage = <any>error
             );
         }
     }
