@@ -1,5 +1,5 @@
-<div class='colour-lovers'>
-    <div *ngIf="palette">
+<div class="row colour-lovers" *ngIf="palette">
+    <div class="col-md-6">
         <h1><a [attr.href]="palette.url">{{palette.title}}</a> <small>by {{palette.userName}}</small></h1>
         <h3>{{palette.id}}</h3>
         <img [src]="palette.imageUrl">
@@ -9,19 +9,19 @@
                 <span [style.color]="colorStr">{{colorStr}}</span>
             </li>
         </ul>
+    </div>
+    <div class="col-md-6">
         <button (click)="toggleJSON()" class="btn">Toggle JSON</button>
         <a [attr.href]="palette.apiUrl">API URL</a>
-        <pre *ngIf="jsonVisible">
-                {{palette | json}}
-        </pre>
+        <pre *ngIf="jsonVisible">{{palette | json}}</pre>
     </div>
 </div>
-<div>
 
-
-<button (click)="changePattern()" class="btn">Change Pattern</button>
-<div *ngIf="pattern" style="height: 80%; border: 1px black solid; background-repeat: repeat;" [style.background-image]="'url(' + pattern.imageUrl +')'">
-    <div style="background-color: white; margin: 5%; padding: 5px">
-        <pre style="height: 50%">{{pattern | json}}</pre>
+<div class="row colour-lovers">
+    <button (click)="changePattern()" class="btn">Change Pattern</button>
+    <div *ngIf="pattern" style="height: 80%; border: 1px black solid; background-repeat: repeat;" [style.background-image]="'url(' + pattern.imageUrl +')'">
+        <div style="background-color: white; margin: 5%; padding: 5px">
+            <pre style="height: 50%">{{pattern | json}}</pre>
+        </div>
     </div>
 </div>
