@@ -3,3 +3,4 @@ typings/
 *.sublime-workspace
 app/*.js
 app/*.js.map
+npm-debug.log
