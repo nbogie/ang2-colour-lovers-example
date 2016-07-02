@@ -1,0 +1,19 @@
+<div class='colour-lovers'>
+    <div *ngIf="palette">
+        <h1><a [attr.href]="palette.url">{{palette.title}}</a> <small>by {{palette.userName}}</small></h1>
+        <h3>{{palette.id}}</h3>
+        <img [src]="palette.imageUrl">
+        <img [src]="palette.badgeUrl">
+        <ul>
+            <li *ngFor="let colorStr of palette.colors">
+                <span [style.color]="colorStr">{{colorStr}}</span>
+            </li>
+        </ul>
+        <button (click)="toggleJSON()" class="btn">Toggle JSON</button>
+        <a [attr.href]="palette.apiUrl">API URL</a>
+        <pre *ngIf="jsonVisible">
+                {{palette | json}}
+        </pre>
+    </div>
+</div>
+
